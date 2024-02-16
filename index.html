@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Area Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <main>
+      <section
+        class="bg-[#d1eaf7] mx-5 mt-5 rounded-lg flex justify-between items-center py-4 px-6 mb-10"
+      >
+        <div>
+          <h1 class="font-bold text-2xl text-slate-800 font-sans">
+            Interactive
+          </h1>
+          <h3 class="text-base text-gray-600 font-semibold">Geometry Genius</h3>
+        </div>
+        <button class="bg-blue-700 text-white px-5 py-2 rounded-md">
+          Blog
+        </button>
+      </section>
+      <section class="mx-5 flex">
+        <div class="flex-1 grid grid-cols-3 gap-5">
+          <div
+            class="border border-solid p-6 rounded-md w-80 flex flex-col justify-center items-center"
+          >
+            <img src="./images/triangle.png" />
+            <h1 class="text-center mt-7 font-bold text-gray-700 text-xl mb-2">
+              Triangle
+            </h1>
+            <h2 class="text-gray-500 mb-3">Area (A) = 0.5 * b * h</h2>
+            <div>
+              <input
+                id="triBase"
+                class="w-20 text-lg bg-[#f1f1f1] rounded-md px-3 mr-2"
+                type="text"
+                placeholder="b"
+              />
+              <span class="text-gray-500">cm</span>
+              <input
+                id="triHeight"
+                class="w-20 text-lg bg-[#f1f1f1] rounded-md px-3 mr-2 ml-2"
+                type="text"
+                placeholder="h"
+              />
+              <span class="text-gray-500">cm</span>
+              <div>
+                <p class="text-center text-gray-500 my-3 text-lg font-semibold">
+                  Area = <span id="areaValue"></span>
+                  <span>cm<sup>2</sup></span>
+                </p>
+              </div>
+            </div>
+            <button
+              onclick="calculateTriangleArea()"
+              class="bg-[#1090d8] py-2 w-full text-white font-bold mt-5 rounded-md"
+            >
+              Calculate
+            </button>
+          </div>
+          <div
+            class="border border-solid p-6 rounded-md w-80 flex flex-col justify-center items-center"
+          >
+            <img src="./images/rectangle.png" />
+            <h1 class="text-center mt-7 font-bold text-gray-700 text-xl mb-2">
+              Rectangle
+            </h1>
+            <h2 class="text-gray-500 mb-3">Area (A) = w * I</h2>
+            <div>
+              <input
+                class="w-20 text-lg bg-[#f1f1f1] rounded-md px-3 mr-2"
+                type="text"
+                placeholder="w"
+              />
+              <span class="text-gray-500">cm</span>
+              <input
+                class="w-20 text-lg bg-[#f1f1f1] rounded-md px-3 mr-2 ml-2"
+                type="text"
+                placeholder="i"
+              />
+              <span class="text-gray-500">cm</span>
+            </div>
+            <button
+              class="bg-[#1090d8] py-2 w-full text-white font-bold mt-5 rounded-md"
+            >
+              Calculate
+            </button>
+          </div>
+          <div
+            class="border border-solid p-6 rounded-md w-80 flex flex-col justify-center items-center"
+          >
+            <img src="./images/parallelogram.png" />
+            <h1 class="text-center mt-7 font-bold text-gray-700 text-xl mb-2">
+              Parallelogram
+            </h1>
+            <h2 class="text-gray-500 mb-3">Area (A) = b * h</h2>
+            <div>
+              <input
+                class="w-20 text-lg bg-[#f1f1f1] rounded-md px-3 mr-2"
+                type="text"
+                placeholder="b"
+              />
+              <span class="text-gray-500">cm</span>
+              <input
+                class="w-20 text-lg bg-[#f1f1f1] rounded-md px-3 mr-2 ml-2"
+                type="text"
+                placeholder="h"
+              />
+              <span class="text-gray-500">cm</span>
+            </div>
+            <button
+              class="bg-[#1090d8] py-2 w-full text-white font-bold mt-5 rounded-md"
+            >
+              Calculate
+            </button>
+          </div>
+          <div
+            class="border border-solid p-6 rounded-md w-80 flex flex-col justify-center items-center"
+          >
+            <img src="./images/rhombus.png" />
+            <h1 class="text-center mt-7 font-bold text-gray-700 text-xl mb-2">
+              Rhombus
+            </h1>
+            <h2 class="text-gray-500 mb-3">
+              Area (A) =Area (A) = 0.5 * d1 * d2
+            </h2>
+            <div>
+              <input
+                class="w-20 text-lg bg-[#f1f1f1] rounded-md px-3 mr-2"
+                type="text"
+                placeholder="d1"
+              />
+              <span class="text-gray-500">cm</span>
+              <input
+                class="w-20 text-lg bg-[#f1f1f1] rounded-md px-3 mr-2 ml-2"
+                type="text"
+                placeholder="d2"
+              />
+              <span class="text-gray-500">cm</span>
+            </div>
+            <button
+              class="bg-[#1090d8] py-2 w-full text-white font-bold mt-5 rounded-md"
+            >
+              Calculate
+            </button>
+          </div>
+          <div
+            class="border border-solid p-6 rounded-md w-80 flex flex-col justify-center items-center"
+          >
+            <img src="./images/pentagon.png" />
+            <h1 class="text-center mt-7 font-bold text-gray-700 text-xl mb-2">
+              Pentagon
+            </h1>
+            <h2 class="text-gray-500 mb-3">Area (A) = 0.5 * p * b</h2>
+            <div>
+              <input
+                class="w-20 text-lg bg-[#f1f1f1] rounded-md px-3 mr-2"
+                type="text"
+                placeholder="p"
+              />
+              <span class="text-gray-500">cm</span>
+              <input
+                class="w-20 text-lg bg-[#f1f1f1] rounded-md px-3 mr-2 ml-2"
+                type="text"
+                placeholder="b"
+              />
+              <span class="text-gray-500">cm</span>
+            </div>
+            <button
+              class="bg-[#1090d8] py-2 w-full text-white font-bold mt-5 rounded-md"
+            >
+              Calculate
+            </button>
+          </div>
+          <div
+            class="border border-solid p-6 rounded-md w-80 flex flex-col justify-center items-center"
+          >
+            <img src="./images/ellipse.png" />
+            <h1 class="text-center mt-7 font-bold text-gray-700 text-xl mb-2">
+              Ellipse
+            </h1>
+            <h2 class="text-gray-500 mb-3">Area (A) = a*b</h2>
+            <div>
+              <input
+                class="w-20 text-lg bg-[#f1f1f1] rounded-md px-3 mr-2"
+                type="text"
+                placeholder="a"
+              />
+              <span class="text-gray-500">cm</span>
+              <input
+                class="w-20 text-lg bg-[#f1f1f1] rounded-md px-3 mr-2 ml-2"
+                type="text"
+                placeholder="b"
+              />
+              <span class="text-gray-500">cm</span>
+            </div>
+            <button
+              class="bg-[#1090d8] py-2 w-full text-white font-bold mt-5 rounded-md"
+            >
+              Calculate
+            </button>
+          </div>
+        </div>
+        <div
+          class="border border-solid p-6 rounded-md w-[370px] ml-5 h-[500px] text-gray-600 font-bold"
+        >
+          <h1 class="underline text-center">Area Calculation</h1>
+        </div>
+      </section>
+    </main>
+    <script src="./triangle.js"></script>
+  </body>
+</html>
